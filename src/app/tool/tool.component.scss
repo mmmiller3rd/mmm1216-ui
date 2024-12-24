@@ -1,0 +1,46 @@
+h1 {
+    text-align: center;
+    .close {
+        &:hover {
+            cursor: pointer;
+            color: red;
+        }
+        width: fit-content;
+        height: fit-content;
+        float: right;
+        font-size: 15px;
+        font-weight: 100;
+        padding-right: 15px;
+    }
+}
+table {
+    width: 90%;
+    margin: 0 5%;
+    th {
+        width: 14%;
+        text-align: left;
+    }
+    td {
+        width: 14%;
+        input {
+            width: 50%;
+            float: left;
+        }
+        .notvalid {
+            background-color: rgba(190, 0, 0, 0.5);
+        }
+        input[type="checkbox" i] {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
+div {
+    button {
+        height: 20px;
+        float: right;
+        margin-right: 20px;
+        margin-top: 40px;
+    }
+}

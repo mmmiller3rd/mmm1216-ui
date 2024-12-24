@@ -1,0 +1,31 @@
+<h1>CART<div (click)="closeCard()">X</div></h1>
+<table>
+    <tr>
+        <th>Tool Code</th>
+        <th>Checkout Date</th>
+        <th>Rental Qty</th>
+        <th>Rental Days</th>
+        <th>Daily Charge</th>
+        <th>total</th>
+        <th>Discount</th>
+        <th></th>
+    </tr>
+    <tr *ngFor="let item of cartItems">
+        <td>{{ item.toolCode }}|{{ item.brand }}</td>
+        <td>{{ item.checkoutDate }}</td>
+        <td>{{ item.rentalQty }}</td>
+        <td>{{ item.rentalDays }}</td>
+        <td>${{ item.dailyRentalCharge }}</td>
+        <td>${{ calculateTotal(item) }}</td>
+        <td><input id="discountPercent" type="number" [(ngModel)]="item.discountPercent" (ngModelChange)="updateDiscountPercent($event, item)" name="item.discountPercent"/></td>
+        <td class="removeFromCart" (click)="removeFromCart(item)">X</td>
+    </tr>
+</table>
+<button (click)="checkout()">Checkout</button>
+<div class="disabledBackground" *ngIf="removeItem === true">
+    <mat-card *ngIf="removeItem === true">
+        <h4>Are you sure you want to remove this tool</h4>
+        <button class="cancel" (click)="cancel()">Cancel</button>
+        <button class="remove" (click)="remove()">Remove</button>
+    </mat-card>
+</div>

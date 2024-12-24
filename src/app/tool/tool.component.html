@@ -1,0 +1,16 @@
+<h1>
+    Add Tool
+    <div class="close" (click)="close()">X</div>
+</h1>
+<table>
+    <tr><th>Tool Code:</th><td><input type="text" id="addToolCode" [(ngModel)]="addToolCode" (ngModelChange)="updateToolCode($event)" name="addToolCode"/></td></tr>
+    <tr><th>Tool Type:</th><td><input type="text" id="addTypeCode" [(ngModel)]="addTypeCode" (ngModelChange)="updateToolType($event)" name="addTypeCode"/></td></tr>
+    <tr><th>Brand:</th><td><input type="text" id="addBrand" [(ngModel)]="addBrand" (ngModelChange)="updateBrand($event)" name="addBrand"/></td></tr>
+    <tr><th>Daily Charge:</th><td><input type="number" id="addDailyCharge" [(ngModel)]="addDailyCharge" (ngModelChange)="updateDailyCharge($event)" name="addDailyCharge"/></td></tr>
+    <tr><th>Weekday Charged:</th><td><input type="checkbox" [(ngModel)]="addWeekdayCharged" (ngModelChange)="updateWeekdayCharged($event)"/></td></tr>
+    <tr><th>Weekend Charged:</th><td><input type="checkbox" [(ngModel)]="addWeekendCharged" (ngModelChange)="updateWeekendCharged($event)"/></td></tr>
+    <tr><th>Holiday Charged:</th><td><input type="checkbox" [(ngModel)]="addHolidayCharged" (ngModelChange)="updateHolidayCharged($event)"/></td></tr>
+</table>
+<div>
+    <button (click)="addTool()">ADD</button>
+</div>

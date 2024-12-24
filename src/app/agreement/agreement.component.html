@@ -1,0 +1,44 @@
+<h1>
+    Rental Agreements
+    <div class="close" (click)="closeAgreements()">X</div>
+</h1>
+<table>
+    <tr>
+        <th>Tool Code</th>
+        <th>Checkout Date</th>
+        <th>Rental Days</th>
+        <th>Quantity</th>
+        <th>Final Charge</th>
+    </tr>
+</table>
+<div class="agreements">
+    <table>
+        <tr *ngFor="let agreement of agreements" (click)="showAgreement(agreement)">
+            <td>{{ agreement.toolCode }}</td>
+            <td>{{ agreement.checkoutDate }}</td>
+            <td>{{ agreement.rentalDays }}</td>
+            <td>{{ agreement.quantity }}</td>
+            <td>{{ agreement.finalCharge }}</td>
+        </tr>
+    </table>
+</div>
+<div class="disabledBackground" *ngIf="agreementVisible === true">
+    <mat-card>
+        <h1>Rental Agreement<div class="close" (click)="closeAgreement()">X</div></h1>
+        <table>
+            <tr><td>Tool Code:</td><td>{{ agreement.toolCode }}</td></tr>
+            <tr><td>Tool Type:</td><td>{{ agreement.toolType }}</td></tr>
+            <tr><td>Brand:</td><td>{{ agreement.brand }}</td></tr>
+            <tr><td>Quantity:</td><td>{{ agreement.quantity }}</td></tr>
+            <tr><td>Rental Days:</td><td>{{ agreement.rentalDays }}</td></tr>
+            <tr><td>Checkout Date:</td><td>{{ agreement.checkoutDate }}</td></tr>
+            <tr><td>Due Date:</td><td>{{ agreement.dueDate }}</td></tr>
+            <tr><td>Chargealbe Days:</td><td>{{ agreement.chargeDays }}</td></tr>
+            <tr><td>Daily Rental Fee:</td><td>${{ agreement.dailyRentalCharge }}</td></tr>
+            <tr><td>Pre-discount Charge:</td><td>${{ agreement.preDiscountCharge }}</td></tr>
+            <tr><td>Discount Percent:</td><td>{{ agreement.discountPercent }}%</td></tr>
+            <tr><td>Discount Amount:</td><td>${{ agreement.discountAmount }}</td></tr>
+            <tr><td>Final Charge:</td><td>${{ agreement.finalCharge }}</td></tr>
+        </table>
+    </mat-card>
+</div>

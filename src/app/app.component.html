@@ -1,0 +1,74 @@
+<div class="header">
+  <h1>TOOL RENTAL </h1>
+</div>
+<div class="left-sidebar">
+  <div class="menu-item" (click)="receiptRecieved()">View Agreements</div>
+  <div class="menu-item" (click)="addTool()">Add Tool</div>
+</div>
+<div class="right-sidebar">
+  <button (click)="showCart()">View Cart</button>
+</div>
+<div class="tool">
+  <div class="toolHeader">
+    <table>
+      <tr>
+        <th>Tool Type</th>
+        <th>Brand</th>
+        <th>Daily Charge</th>
+        <th>Weekday Charged</th>
+        <th>Weekend Charged</th>
+        <th>Holiday Charged</th>
+      </tr>
+    </table>
+  </div>
+  <div class="toolView">
+    <table>
+      <tr *ngFor="let tool of tools" (click)="showAdd(tool)">
+        <td>{{ tool.toolType }}</td>
+        <td>{{ tool.brand }}</td>
+        <td>{{ tool.dailyCharge }}</td>
+        <td>{{ tool.weekdayCharge }}</td>
+        <td>{{ tool.weekendCharge }}</td>
+        <td>{{ tool.holidayCharge }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="disabledBackground" *ngIf="addVisible === true || cartVisible === true || agreementsVisible === true || toolVisible === true">
+  <mat-card id="checkout" *ngIf="addVisible === true">
+    <h1>
+      {{ checkoutTool.brand }}
+      <div class="close" (click)="closeCard()">X</div>
+    </h1>
+    <table>
+      <tr>
+        <th>Tool</th>
+        <th>Rental Days</th>
+        <th>Rental Start Date</th>
+        <th># of tools renting</th>
+      </tr>
+      <tr>
+        <td>{{ checkoutTool.toolType }}</td>
+        <td><input type="number" id="rentalDays" [(ngModel)]="rentalDays" (ngModelChange)="updateRentalDays($event)" name="rentalDays"/></td>
+        <td><input type="date" id="startDate" [(ngModel)]="startDate" (ngModelChange)="updateStartDate($event)" name="startDate"/></td>
+        <td><input type="number" id="rentalQty" [(ngModel)]="rentalQty" (ngModelChange)="updateRentalQty($event)" name="rentalQty"/></td>
+      </tr>
+    </table>
+    <div>
+      <button (click)="addToCart()">Add to Cart</button>
+    </div>
+  </mat-card>
+  <mat-card id="cart" *ngIf="cartVisible === true">
+    <cart (closeCartEvent)="closeCard($event)" (receiptEvent)="receiptRecieved()"></cart>
+  </mat-card>
+  <mat-card id="agreements" *ngIf="agreementsVisible === true">
+    <agreements (closeAgreementsEvent)="closeCard($event)"></agreements>
+  </mat-card>
+  <mat-card id="tool" *ngIf="toolVisible === true">
+    <tool (closeToolEvent)="closeCard($event)"></tool>
+  </mat-card>
+</div>
+
+
+
+<router-outlet></router-outlet>

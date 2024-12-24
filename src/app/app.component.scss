@@ -1,0 +1,175 @@
+.header {
+    width: 80%;
+    height: 160px;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgb(124, 124, 124);
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    text-align: center;
+    h1 {
+        margin: 34px;
+        font-size: 5em;
+    }
+}
+.left-sidebar {
+    height: 100%;
+    width: 10%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(124, 124, 124);
+    overflow-x: hidden;
+    padding-top: 160px;
+    div:first-of-type {
+        border-top: 1px solid #000000;
+        height: 28px !important;
+    }
+    .menu-item {
+        padding-left: 30px;
+        padding-top: 10px;
+        height: 29px;
+        color: aqua;
+        border-bottom: 1px solid #000000;
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(105, 105, 105);
+        }
+    }
+}
+.right-sidebar {
+    height: 100%;
+    width: 10%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgb(124, 124, 124);
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+.tool {
+    background-color: rgb(214, 214, 214);
+    margin-left: 10%;
+    margin-top: 160px;
+    margin-right: 10%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    .toolHeader {
+        width: 100%;
+        height: 40px;
+        font-size: larger;
+        table {
+            width: 100%;
+            border-spacing: 0px;
+            th {
+                text-align: left;
+                padding: 10px 5px;
+                width: 17%;
+            }
+        }
+    }
+    .toolView {
+        height: 100%;
+        width: 100%;
+        table {
+            border-spacing: 0;
+            width: 100%;        
+            tr:nth-child(odd) {
+                background-color: aqua;
+                &:hover {
+                    cursor: pointer;
+                    background-color: rgb(0, 170, 255);
+                }
+            }
+            tr:nth-child(even) {
+                background-color: rgb(210, 172, 145);
+                &:hover {
+                    cursor: pointer;
+                    background-color: chocolate;
+                }
+            }
+            td {
+                text-align: left;
+                width: 17%;
+                padding: 10px 5px;
+            }
+        }
+    }
+}
+mat-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 50%;
+    padding: 0;
+    z-index: 3;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    box-shadow: 10px 10px 8px #000000;
+    h1 {
+        text-align: center;
+        padding: 10px 0px;
+        .close {
+            &:hover {
+                cursor: pointer;
+                color: red;
+            }
+            width: fit-content;
+            height: fit-content;
+            float: right;
+            font-size: 15px;
+            font-weight: 100;
+            padding-right: 15px;
+        }
+    }
+    table {
+        width: 100%;
+        padding: 10px 30px 30px 30px;
+        text-align: left;
+        .notvalid {
+            background-color: rgba(190, 0, 0, 0.5);
+        }
+    }
+    button {
+        width: 150px;
+        height: 50px;
+        float: right;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+}
+#checkout {
+    height: 25%;
+}
+#cart {
+    height: 50%;
+}
+#agreements {
+    height: 50%;
+}
+#tool {
+    height: 35%;
+    width: 20%;
+}
+.disabledBackground {
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+}
